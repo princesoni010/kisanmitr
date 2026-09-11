@@ -1,0 +1,313 @@
+[
+  {
+    "scheme_id": "SCH_PM_KISAN",
+    "name": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+    "type": "income_support",
+    "coverage": ["All India"],
+    "benefits": "₹6,000 per year in 3 equal installments of ₹2,000",
+    "eligibility_rules": {
+      "ownership_required": true,
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "allowed_crops": null,
+      "irrigation_required": null,
+      "category_restriction": null,
+      "income_cap": null,
+      "exclusions": [
+        "government employee family",
+        "income tax payer"
+      ]
+    },
+    "documents_required": [
+      "Aadhaar card",
+      "Land record / Khatauni",
+      "Bank account details"
+    ],
+    "deadline": "rolling",
+    "official_url": "https://pmkisan.gov.in",
+    "last_verified": "2026-09-07"
+  },
+  {
+    "scheme_id": "SCH_RG_KISAN_NYAY",
+    "name": "Rajiv Gandhi Kisan Nyay Yojana (CG)",
+    "type": "income_support",
+    "coverage": ["Chhattisgarh"],
+    "benefits": "Financial assistance up to ₹9,000/acre for paddy & millet farmers",
+    "eligibility_rules": {
+      "ownership_required": true,
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "allowed_crops": ["Paddy", "Kodo-Kutki", "Ragi", "Pulses"],
+      "irrigation_required": null,
+      "category_restriction": null,
+      "income_cap": null,
+      "exclusions": []
+    },
+    "documents_required": [
+      "Aadhaar card",
+      "CG Resident Certificate",
+      "Girdawari Land Verification",
+      "Bank Passbook"
+    ],
+    "deadline": "2026-10-31",
+    "official_url": "https://rgkny.cg.nic.in",
+    "last_verified": "2026-09-07"
+  },
+  {
+    "scheme_id": "SCH_KCC",
+    "name": "Kisan Credit Card (KCC) Scheme",
+    "type": "credit_loan",
+    "coverage": ["All India"],
+    "benefits": "Short-term crop loans up to ₹3 Lakh at low 4% effective interest rate",
+    "eligibility_rules": {
+      "ownership_required": true,
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "allowed_crops": null,
+      "irrigation_required": null,
+      "category_restriction": null,
+      "income_cap": null,
+      "exclusions": []
+    },
+    "documents_required": [
+      "Aadhaar card",
+      "Land record (B-1/Khasra)",
+      "Passport size photo",
+      "No Dues certificate"
+    ],
+    "deadline": "Rolling",
+    "official_url": "https://pmkisan.gov.in",
+    "last_verified": "2026-09-07"
+  },
+  {
+    "scheme_id": "SCH_PMFBY",
+    "name": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+    "type": "insurance",
+    "coverage": ["All India"],
+    "benefits": "Comprehensive crop insurance cover with maximum premium of 1.5% - 2%",
+    "eligibility_rules": {
+      "ownership_required": false,
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "allowed_crops": ["Kharif", "Rabi", "Horticulture"],
+      "irrigation_required": null,
+      "category_restriction": null,
+      "income_cap": null,
+      "exclusions": []
+    },
+    "documents_required": [
+      "Aadhaar card",
+      "Sowing Certificate",
+      "Land ownership doc or Tenant agreement",
+      "Bank details"
+    ],
+    "deadline": "Seasonally defined",
+    "official_url": "https://pmfby.gov.in",
+    "last_verified": "2026-09-07"
+  },
+  {
+    "scheme_id": "SCH_PM_KUSUM",
+    "name": "PM-KUSUM Solar Pump Scheme",
+    "type": "irrigation",
+    "coverage": ["All India"],
+    "benefits": "Up to 60% subsidy for installing standalone solar agriculture pumps",
+    "eligibility_rules": {
+      "ownership_required": true,
+      "min_land_acres": 0.5,
+      "max_land_acres": null,
+      "allowed_crops": null,
+      "irrigation_required": false,
+      "category_restriction": null,
+      "income_cap": null,
+      "exclusions": []
+    },
+    "documents_required": [
+      "Aadhaar card",
+      "Land ownership (Khasra)",
+      "Bank passbook",
+      "Electricity connection details"
+    ],
+    "deadline": "Rolling",
+    "official_url": "https://pmkusum.mnre.gov.in",
+    "last_verified": "2026-09-07"
+  },
+  {
+    "scheme_id": "SCH_PMKSY",
+    "name": "Pradhan Mantri Krishi Sinchayee Yojana (PMKSY)",
+    "type": "irrigation",
+    "coverage": ["All India"],
+    "benefits": "55% to 75% subsidy on Drip and Sprinkler irrigation systems",
+    "eligibility_rules": {
+      "ownership_required": true,
+      "min_land_acres": 0.5,
+      "max_land_acres": 12.5,
+      "allowed_crops": null,
+      "irrigation_required": false,
+      "category_restriction": null,
+      "income_cap": null,
+      "exclusions": []
+    },
+    "documents_required": [
+      "Aadhaar card",
+      "Land ownership certificate (B1/P2)",
+      "Soil/Water testing report",
+      "Bank Details"
+    ],
+    "deadline": "Rolling",
+    "official_url": "https://pmksy.gov.in",
+    "last_verified": "2026-09-07"
+  },
+  {
+    "scheme_id": "SCH_SAUR_SUJALA",
+    "name": "Saur Sujala Yojana (Chhattisgarh)",
+    "type": "irrigation",
+    "coverage": ["Chhattisgarh"],
+    "benefits": "Solar irrigation pumps provided at up to 95% subsidized cost",
+    "eligibility_rules": {
+      "ownership_required": true,
+      "min_land_acres": 1.0,
+      "max_land_acres": null,
+      "allowed_crops": null,
+      "irrigation_required": false,
+      "category_restriction": null,
+      "income_cap": null,
+      "exclusions": []
+    },
+    "documents_required": [
+      "Aadhaar Card",
+      "CG Domicile Certificate",
+      "Khasra/Khatauni land record",
+      "Water source proof (Borewell/Pond)"
+    ],
+    "deadline": "Rolling",
+    "official_url": "https://creda.in",
+    "last_verified": "2026-09-07"
+  },
+  {
+    "scheme_id": "SCH_SMAM",
+    "name": "Sub-Mission on Agricultural Mechanization (SMAM)",
+    "type": "equipment",
+    "coverage": ["All India"],
+    "benefits": "40% to 50% subsidy for purchasing tractors, rotavators & harvesters",
+    "eligibility_rules": {
+      "ownership_required": true,
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "allowed_crops": null,
+      "irrigation_required": null,
+      "category_restriction": null,
+      "income_cap": null,
+      "exclusions": []
+    },
+    "documents_required": [
+      "Aadhaar card",
+      "Land Record (B1)",
+      "Bank Passbook",
+      "Quotation from Authorized Dealer"
+    ],
+    "deadline": "2026-12-31",
+    "official_url": "https://agrimachinery.nic.in",
+    "last_verified": "2026-09-07"
+  },
+  {
+    "scheme_id": "SCH_SOIL_HEALTH",
+    "name": "Soil Health Card Scheme (मृदा स्वास्थ्य कार्ड)",
+    "type": "advisory",
+    "coverage": ["All India"],
+    "benefits": "Free soil testing and customized fertilizer recommendation card every 2 years",
+    "eligibility_rules": {
+      "ownership_required": false,
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "allowed_crops": null,
+      "irrigation_required": null,
+      "category_restriction": null,
+      "income_cap": null,
+      "exclusions": []
+    },
+    "documents_required": [
+      "Aadhaar card",
+      "Land details / Survey number"
+    ],
+    "deadline": "Rolling",
+    "official_url": "https://soilhealth.dac.gov.in",
+    "last_verified": "2026-09-07"
+  },
+  {
+    "scheme_id": "SCH_PKVY",
+    "name": "Paramparagat Krishi Vikas Yojana (PKVY Organic)",
+    "type": "income_support",
+    "coverage": ["All India"],
+    "benefits": "₹50,000 per hectare assistance for organic farming inputs, seeds & certification",
+    "eligibility_rules": {
+      "ownership_required": true,
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "allowed_crops": null,
+      "irrigation_required": null,
+      "category_restriction": null,
+      "income_cap": null,
+      "exclusions": []
+    },
+    "documents_required": [
+      "Aadhaar card",
+      "Land Record",
+      "Group / Cluster Registration Form"
+    ],
+    "deadline": "Rolling",
+    "official_url": "https://pgsindia-ncof.gov.in",
+    "last_verified": "2026-09-07"
+  },
+  {
+    "scheme_id": "SCH_GODHAN_NYAY",
+    "name": "Godhan Nyay Yojana (Chhattisgarh)",
+    "type": "income_support",
+    "coverage": ["Chhattisgarh"],
+    "benefits": "Procurement of cow dung at ₹2/kg and vermicompost production income",
+    "eligibility_rules": {
+      "ownership_required": false,
+      "min_land_acres": null,
+      "max_land_acres": null,
+      "allowed_crops": null,
+      "irrigation_required": null,
+      "category_restriction": null,
+      "income_cap": null,
+      "exclusions": []
+    },
+    "documents_required": [
+      "Aadhaar card",
+      "CG Domicile Certificate",
+      "Gauthan Card / Bank Account"
+    ],
+    "deadline": "Rolling",
+    "official_url": "https://cgstate.gov.in",
+    "last_verified": "2026-09-07"
+  },
+  {
+    "scheme_id": "SCH_PM_MANDHAN",
+    "name": "PM Kisan Maandhan Yojana",
+    "type": "social_security",
+    "coverage": ["All India"],
+    "benefits": "Assured monthly pension of ₹3,000 after attaining 60 years of age",
+    "eligibility_rules": {
+      "ownership_required": true,
+      "min_land_acres": null,
+      "max_land_acres": 5.0,
+      "allowed_crops": null,
+      "irrigation_required": null,
+      "category_restriction": null,
+      "income_cap": null,
+      "exclusions": [
+        "NPS / EPFO / ESIC members",
+        "Income tax payers"
+      ]
+    },
+    "documents_required": [
+      "Aadhaar card",
+      "Savings Bank account / PM-KISAN account details"
+    ],
+    "deadline": "Rolling",
+    "official_url": "https://pmkmy.gov.in",
+    "last_verified": "2026-09-07"
+  }
+]

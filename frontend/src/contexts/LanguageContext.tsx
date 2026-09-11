@@ -1,0 +1,151 @@
+import { createContext, useContext, useState, useEffect } from "react";
+import type { ReactNode } from "react";
+export type Lang = "hi" | "en";
+
+const T = {
+  hi: {
+    nav_home: "होम", nav_schemes: "योजनाएं", nav_fraud: "फ्रॉड जांच", nav_profile: "प्रोफाइल",
+    app_title: "Kisanमित्र",
+    popular_schemes: "लोकप्रिय योजनाएं",
+    ask_ai: "AI सहायक से पूछें",
+    chat_placeholder: "मुझे योजना के बारे में जानना है...",
+    thinking: "सोच रहा है...",
+    speak_btn: "सुनने के लिए दबाएं", stop_btn: "रोकें",
+    view_details: "विवरण देखें →",
+    quick_find: "योजना ढूंढें", quick_match: "स्मार्ट मैच", quick_fraud: "फ्रॉड जांच", quick_apps: "मेरे आवेदन",
+    notifications: "सूचनाएं",
+    schemes_title: "सरकारी योजनाएं",
+    schemes_subtitle: "सरकारी कृषि सब्सिडी खोजें और आवेदन करें",
+    search_placeholder: "योजना खोजें (नाम, लोन, सब्सिडी, सोलर)...",
+    filter_label: "श्रेणी से फ़िल्टर करें:", found_label: "मिली",
+    verified_badge: "सत्यापित", all_india_badge: "अखिल भारत योजना", cg_badge: "छत्तीसगढ़ योजना",
+    likely_eligible: "संभावित पात्र", benefit_label: "लाभ",
+    view_checklist: "विवरण और सूची देखें →",
+    deadline_label: "अंतिम तिथि", deadline_rolling: "चालू (कोई अंतिम तिथि नहीं)",
+    land_eligibility: "आपके पास {land} जमीन है (पात्रता मानदंड में शामिल)",
+    state_eligibility: "निवास राज्य: {state} (छत्तीसगढ़ पात्र)",
+    no_scheme_found: "कोई योजना नहीं मिली",
+    no_scheme_msg: "आपकी खोज के लिए कोई योजना उपलब्ध नहीं है। फ़िल्टर रीसेट करें।",
+    reset_filter: "फ़िल्टर रीसेट करें", loading_schemes: "योजनाएं लोड हो रही हैं...",
+    cat_all: "सभी योजनाएं", cat_income: "आय सहायता", cat_irrigation: "सिंचाई एवं सोलर",
+    cat_credit: "केसीसी व लोन", cat_insurance: "फसल बीमा", cat_equipment: "मशीनरी व उपकरण",
+    cat_pension: "पेंशन व सुरक्षा", cat_advisory: "मृदा व सलाह",
+    eligibility_badge: "संभावित पात्र", benefits_section: "लाभ",
+    docs_section: "ज़रूरी कागज़ात", apply_section: "आवेदन कैसे करें",
+    apply_step1: "कागज़ात इकट्ठा करें", apply_step2: "नजदीकी CSC जाएं या ऑनलाइन आवेदन करें",
+    apply_step3: "फॉर्म भरें", apply_step4: "सबमिशन रसीद संभाल कर रखें",
+    official_site: "आधिकारिक साइट", ready_pct: "तैयार",
+    elig_land: "आपकी जमीन का आकार पात्रता मानदंड में आता है।",
+    elig_state: "आप एक पात्र राज्य के निवासी हैं।",
+    fraud_title: "फ्रॉड जांच AI",
+    fraud_subtitle: "AI-संचालित स्कैम और फर्जी SMS/WhatsApp डिटेक्टर",
+    fraud_banner: "सुरक्षा सलाह: PM-KISAN, KCC, या किसी सरकारी योजना के नाम पर आए संदिग्ध मैसेज का टेक्स्ट यहाँ पेस्ट करें या स्क्रीनशॉट अपलोड करें। AI तुरंत जांच करेगा।",
+    fraud_paste_label: "संदेश दर्ज करें (संदिग्ध संदेश पेस्ट करें):",
+    fraud_upload_btn: "स्क्रीनशॉट अपलोड करें", fraud_check_btn: "AI फ्रॉड जांच शुरू करें",
+    fraud_reset_btn: "रीसेट", fraud_analyzing: "AI विश्लेषण जारी है...",
+    fraud_quick_test: "नमूना मैसेज से टेस्ट करें:",
+    doc_title: "स्मार्ट स्कीम मैचर", doc_subtitle: "AI विश्लेषण के लिए दस्तावेज़ अपलोड करें",
+    doc_secure: "🔒 100% सुरक्षित",
+    doc_secure_msg: "आपके दस्तावेज़ 100% सुरक्षित हैं। ये केवल AI विश्लेषण के लिए उपयोग होते हैं और सर्वर पर स्टोर नहीं होते।",
+    doc_upload_label: "दस्तावेज़ अपलोड करें", doc_upload_hint: "छवि या PDF प्रारूप में",
+    doc_analyze_btn: "अभी विश्लेषण करें", doc_change_btn: "फ़ाइल बदलें",
+    doc_loading: "AI दस्तावेज़ पढ़ रहा है...", doc_loading_sub: "कृपया प्रतीक्षा करें, योजनाएं ढूंढी जा रही हैं।",
+    doc_ai_msg: "AI संदेश", doc_extracted: "निकाली गई जानकारी",
+    doc_eligible_title: "योग्य योजनाएं", doc_no_match: "इस दस्तावेज़ के आधार पर कोई विशिष्ट योजना मेल नहीं खाई।",
+    profile_title: "मेरी प्रोफाइल", profile_subtitle: "किसान खाता और सेटिंग्स",
+    edit_profile_btn: "प्रोफाइल संपादित करें", lang_label: "भाषा",
+    notif_label: "सूचनाएं और अलर्ट", help_label: "मदद और सहायता",
+    logout_btn: "लॉग आउट करें", save_btn: "सहेजें", cancel_btn: "रद्द करें",
+    name_label: "पूरा नाम", phone_label: "मोबाइल नंबर", district_label: "जिला",
+    state_label: "राज्य", land_label: "जमीन का आकार", cat_label: "वर्ग", crops_label: "प्रमुख फसलें",
+    onboard_title: "Kisanमित्र", onboard_subtitle: "किसान नीति एवं सब्सिडी पोर्टल",
+    login_heading: "किसान पंजीकरण / लॉगिन",
+    login_sub: "योजना पात्रता एवं प्रोफाइल के लिए अपनी सही जानकारी भरें",
+    send_otp_btn: "OTP प्राप्त करें", otp_heading: "OTP सत्यापन",
+    verify_btn: "सत्यापित करें और लॉगिन करें", resend_otp: "दोबारा भेजें", edit_info: "← जानकारी बदलें",
+    available_schemes: "योजनाएं उपलब्ध",
+  },
+  en: {
+    nav_home: "Home", nav_schemes: "Schemes", nav_fraud: "Fraud Check", nav_profile: "Profile",
+    app_title: "Kisanमित्र",
+    popular_schemes: "Popular Schemes",
+    ask_ai: "Ask AI Assistant",
+    chat_placeholder: "Ask me about any scheme...",
+    thinking: "Thinking...",
+    speak_btn: "Listen", stop_btn: "Stop",
+    view_details: "View Details →",
+    quick_find: "Find Schemes", quick_match: "Smart Match", quick_fraud: "Check Fraud", quick_apps: "My Apps",
+    notifications: "Notifications",
+    schemes_title: "Government Schemes",
+    schemes_subtitle: "Find & Apply for Government Agricultural Subsidies",
+    search_placeholder: "Search scheme by name, loan, subsidy, solar...",
+    filter_label: "Filter by Category:", found_label: "Found",
+    verified_badge: "Verified", all_india_badge: "All India Scheme", cg_badge: "Chhattisgarh Scheme",
+    likely_eligible: "Likely Eligible", benefit_label: "Benefit",
+    view_checklist: "View Details & Checklist →",
+    deadline_label: "Deadline", deadline_rolling: "Ongoing (No fixed date)",
+    land_eligibility: "Your land ({land}) fits the eligibility criteria",
+    state_eligibility: "Resident of eligible state: {state}",
+    no_scheme_found: "No Schemes Found",
+    no_scheme_msg: "No schemes match your search. Please reset filters.",
+    reset_filter: "Clear Search & Reset Filters", loading_schemes: "Loading Schemes...",
+    cat_all: "All Schemes", cat_income: "Income Support", cat_irrigation: "Irrigation & Solar",
+    cat_credit: "KCC & Credit Loans", cat_insurance: "Crop Insurance", cat_equipment: "Equipment & Subsidy",
+    cat_pension: "Pension & Security", cat_advisory: "Soil & Advisory",
+    eligibility_badge: "Likely Eligible", benefits_section: "Benefits",
+    docs_section: "Required Documents", apply_section: "How to Apply",
+    apply_step1: "Collect all required documents", apply_step2: "Visit nearest CSC or apply online",
+    apply_step3: "Fill the application form", apply_step4: "Keep the submission receipt safe",
+    official_site: "Official Site", ready_pct: "Ready",
+    elig_land: "Your land size fits the eligibility criteria.",
+    elig_state: "You are a resident of an eligible state.",
+    fraud_title: "Fraud Check AI",
+    fraud_subtitle: "AI-powered Scam & Fake SMS/WhatsApp Detector",
+    fraud_banner: "Safety advice: If you received a suspicious message in the name of PM-KISAN, KCC, or any government scheme, paste the text here or upload a screenshot. AI will analyze it instantly.",
+    fraud_paste_label: "Paste suspicious message here:",
+    fraud_upload_btn: "Upload Screenshot", fraud_check_btn: "AI Fraud Check",
+    fraud_reset_btn: "Reset", fraud_analyzing: "AI Analysis in Progress...",
+    fraud_quick_test: "Quick Test Examples:",
+    doc_title: "Smart Scheme Matcher", doc_subtitle: "Upload document for AI analysis",
+    doc_secure: "🔒 100% Secure",
+    doc_secure_msg: "Your documents are 100% safe. They are only used for AI analysis and not stored on our servers.",
+    doc_upload_label: "Upload Document", doc_upload_hint: "In image or PDF format",
+    doc_analyze_btn: "Analyze Now", doc_change_btn: "Change File",
+    doc_loading: "AI is reading the document...", doc_loading_sub: "Please wait, searching for matching schemes.",
+    doc_ai_msg: "AI Message", doc_extracted: "Extracted Information",
+    doc_eligible_title: "Eligible Schemes", doc_no_match: "No specific scheme matched based on this document.",
+    profile_title: "My Profile", profile_subtitle: "Kisan Account & Settings",
+    edit_profile_btn: "Edit Profile", lang_label: "Language",
+    notif_label: "Notifications & Alerts", help_label: "Help & Helpline Support",
+    logout_btn: "Log Out", save_btn: "Save Changes", cancel_btn: "Cancel",
+    name_label: "Full Name", phone_label: "Mobile Number", district_label: "District",
+    state_label: "State", land_label: "Land Size", cat_label: "Category", crops_label: "Primary Crops",
+    onboard_title: "Kisanमित्र", onboard_subtitle: "Farmer Policy & Subsidy Portal",
+    login_heading: "Farmer Registration / Login",
+    login_sub: "Fill in your correct details for scheme eligibility and profile",
+    send_otp_btn: "Send OTP", otp_heading: "OTP Verification",
+    verify_btn: "Verify & Login", resend_otp: "Resend", edit_info: "← Edit Info",
+    available_schemes: "schemes available",
+  },
+};
+
+type Translations = Record<string, string>;
+interface LangContextType { lang: Lang; setLang: (l: Lang) => void; t: any; }
+
+const LanguageContext = createContext<LangContextType>({ lang: "hi", setLang: () => {}, t: T.hi });
+
+export function LanguageProvider({ children }: { children: ReactNode }) {
+  const [lang, setLangState] = useState<Lang>(() => {
+    const saved = localStorage.getItem("app_language");
+    return saved === "en" ? "en" : "hi";
+  });
+  const setLang = (l: Lang) => { setLangState(l); localStorage.setItem("app_language", l); };
+  useEffect(() => { localStorage.setItem("app_language", lang); }, [lang]);
+  return (
+    <LanguageContext.Provider value={{ lang, setLang, t: T[lang] }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+}
+
+export function useLanguage() { return useContext(LanguageContext); }
